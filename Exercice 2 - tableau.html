@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Exercice des tableaux - Javascript</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+		<meta charset="utf-8">
+
+	</head>
+	<body>
+        <ul id="liste">
+
+		</ul>	
+			<input id="texte"></input>
+			<button id="ajouter">Ajouter</button>
+			<button id="annuler">Annuler la dernière entrée</button>
+		
+		
+			<script type="text/javascript">
+				$liste = document.getElementById("liste");
+				$texte = document.getElementById("texte");
+				$ajouter = document.getElementById("ajouter");
+				$annuler = document.getElementById("annuler");
+				
+				var tableau = ["Bobby", "Julien", "Roger"];
+	
+				function afficherListe() {
+					var elements = "";
+					for (i = 0; i < tableau.length; i++) {
+						elements += "<li>" + tableau[i] + "</li>";
+					}
+					$liste.innerHTML = elements;
+				}
+				function ajouterElement() {
+					tableau.push($texte.value);
+					afficherListe();
+				}
+				
+				function annulerDernier() {
+					tableau.pop();
+					afficherListe();
+				}
+				
+				afficherListe();
+				$ajouter.onclick = ajouterElement;
+				$annuler.onclick = annulerDernier;
+			</script>
+	</body>
+</html>
