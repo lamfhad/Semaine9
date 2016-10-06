@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Exercice CSS - Javascript</title>
+        <link rel="stylesheet" type="text/css" href="css/Exo3JavaCSS.css"/>
+		<meta charset="utf-8">
+
+	</head>
+	<body>
+		<ul id="liste">
+			<li>un</li>
+			<li>deux</li>
+			<li>trois</li>
+		</ul>
+		<button id="disparaitre">Disparaitre</button>
+		<button id="restaurer">Restaurer</button>
+		
+		<script type="text/javascript">
+			$liste=document.getElementById("liste");
+			$disparaitre=document.getElementById("disparaitre");
+			$restaurer=document.getElementById("restaurer");
+			
+			function selectionne(e) {
+				e.target.classList.toggle("selected");
+			}
+			
+			function disparait(){
+			for (i = 0; i < $liste.children.length; i++) {
+				if ($liste.children[i].classList.contains("selected")) {
+					$liste.children[i].classList.add("disparu");
+					}
+				}
+			}
+			
+			function restaure() {
+				for (i = 0; i<$liste.children.length;i++) {
+					$liste.children[i].classList.remove("disparu");
+					$liste.children[i].classList.remove("selected");
+				}
+			}
+			
+			$liste.onclick=selectionne;
+			$disparaitre.onclick = disparait;
+			$restaurer.onclick=restaure;
+		</script>
+	</body>
+</html>
